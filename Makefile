@@ -1,22 +1,7 @@
 pdf:
-	pandoc \
-	  -o Unix_Shell_Handout.pdf \
-          --toc \
-	   --pdf-engine xelatex \
-	   --variable mainfont="DejaVu Sans" \
-	   --variable sansfont="DejaVu Sans" \
-	   -V geometry:"top=2cm, bottom=2.0cm, left=2.5cm, right=2.5cm" \
-	  Unix_Shell_Handout.md
-
-	pandoc \
-	  -o Unix_Shell_cheat_sheet.pdf \
-           --toc \
-	   --pdf-engine xelatex \
-	   --variable mainfont="DejaVu Sans" \
-	   --variable sansfont="DejaVu Sans" \
-	   -V geometry:"top=2cm, bottom=2.0cm, left=2.5cm, right=2.5cm" \
-	   Unix_Shell_cheat_sheet.md
-
+	pandoc -o Handout.pdf --variable monofont="Bitstream Vera Sans Mono" \
+          -V geometry:"top=2cm, bottom=2.0cm, left=2.5cm, right=2.5cm" \
+          --variable mainfont=Georgia Handout.md
 
 example_files:
 	mkdir -p unix_course_files
@@ -41,10 +26,4 @@ example_files:
 	echo "tRNA\ntRNA\ntRNA\nrRNA\nrRNA\nmRNA\nmRNA\nmRNA\nmRNA" \
 	  > unix_course_files/redundant.txt
 	wget -cO unix_course_files/origin_of_species.txt \
-	  https://archive.org/stream/originofspecies00darwuoft/originofspecies00darwuoft_djvu.txt
-
-new_release:
-	@echo "* Commit changes e.g. 'git commit -m \"Set version to 1.0\"'"
-	@echo "* Tag the commit e.g. 'git tag -a v1.0 -m \"version v1.0\"'"
-	@echo "* Generate a new release based on this tag at"
-	@echo "  https://github.com/konrad/Introduction_to_the_Unix_Shell_for_biologists/releases"
+          http://www.gutenberg.org/cache/epub/22764/pg22764.txt     
